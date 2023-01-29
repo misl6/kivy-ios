@@ -2,6 +2,9 @@ name: kivy-ios
 
 on: [push, pull_request]
 
+env:
+  DEVELOPER_DIR: /Applications/Xcode_14.1.app/Contents/Developer
+
 jobs:
 
   build_python3_kivy:
@@ -19,4 +22,4 @@ jobs:
         wget https://github.com/libffi/libffi/releases/download/v3.4.4/libffi-3.4.4.tar.gz
         tar -xvf libffi-3.4.4.tar.gz
         cd libffi-3.4.4
-        ./configure -host i386-apple-darwin11
+        ./generate-darwin-source-and-headers.py
